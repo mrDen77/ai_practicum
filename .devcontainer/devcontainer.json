@@ -1,0 +1,34 @@
+{
+    "name": "AI Course Sprint 1 (Python 3.10)",
+    //"build": {
+    //    "dockerfile": "dockerfile"
+    //},
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+
+    // Курс просит установить пакеты из файла. Мы делаем это автоматически при сборке!    
+    "postCreateCommand": "pip config set global.trusted-host 'pypi.org files.pythonhosted.org download.pytorch.org download-r2.pytorch.org' && pip install --upgrade pip && pip install -r sprint1/requirements_sprint_1.txt  && pip install ipykernel",
+
+    "forwardPorts": [8888], // Порт для Jupyter, если вдруг понадобится
+
+    "mounts": [
+        "source=C:\\ai\\data,target=/data,type=bind,consistency=cached"
+    ],
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                // Заставляем Jupyter всегда использовать этот интерпретатор
+                "jupyter.kernels.defaultKernelName": "python3" 
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers"
+            ]
+        }
+    }
+}
