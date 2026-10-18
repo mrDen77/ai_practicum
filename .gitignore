@@ -14,7 +14,7 @@ __pycache__/
 htmlcov/
 
 # ========== “€жЄлые данные и модели ==========
-data/
+# data/
 qwen-instruct/
 *.zip
 *.tar.gz
